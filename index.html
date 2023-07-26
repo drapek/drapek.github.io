@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escape Room</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #myForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+</head>
+<body>
+    <div id="myForm">
+        <h1>Wpisz hasło</h1>
+        <input type="password" id="password" placeholder="Wpisz hasło tutaj...">
+        <button onclick="checkPassword()">Potwierdź</button>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var hashedPassword = CryptoJS.SHA256(password).toString(); // Hashowanie hasła
+            
+            var correctHash = "8abdcf7de2d49bb7f2c47b9d22c3d17385e7a2955ce86d96b7444940c9652adf";
+
+            if (hashedPassword == correctHash) {
+                window.location.href = "https://shorturl.at/cflDT"; 
+            } else {
+                alert("Złe hasło, spróbuj jeszcze raz.");
+            }
+        }
+    </script>
+</body>
+</html>
